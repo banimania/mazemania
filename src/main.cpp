@@ -238,7 +238,12 @@ void mainLoop() {
   //if (IsKeyDown(KEY_SPACE)) maze.solveMazeDFS();
   if (IsKeyDown(KEY_R)) {
     maze.restartMaze();
-    maze2.restartMaze();
+    maze2.ady = std::vector<std::vector<int>>(maze.ady);
+    maze2.solution.clear();
+    maze2.recStep = std::stack<int>();
+    maze2.bfsQueue = std::queue<int>();
+    maze2.visitedStep = std::vector<bool>(maze2.size * maze2.size, false);
+    //maze2.restartMaze();
   }
   if (IsKeyDown(KEY_SPACE)) maze.solveMazeDFSStep();
   if (IsKeyDown(KEY_SPACE)) maze2.solveMazeBFSStep();
